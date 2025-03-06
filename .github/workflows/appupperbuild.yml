@@ -1,0 +1,14 @@
+name: appupperbuild
+
+on:
+    push:
+        paths:
+            - ".github/workflows/appupperbuild.yml"
+            - "upper/**"
+    workflow_dispatch:  # manual trigger
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - run: go version
+        

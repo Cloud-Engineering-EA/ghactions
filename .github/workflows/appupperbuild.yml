@@ -10,5 +10,8 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - run: go version
+            - run: pwd && ls -al
+            - uses: actions/checkout@v4
+            - run: pwd && ls -al
+
         

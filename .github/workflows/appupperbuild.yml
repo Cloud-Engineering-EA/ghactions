@@ -16,7 +16,12 @@ jobs:
             - uses: actions/setup-go@v2
               with:
                   go-version: '1.22'
-            - run: cd upper && go build
-            - run: cd upper && go test
-
+            - run: |
+            ls -l
+                go build 
+                go test -v
+                ls -l
+              working-directory: upper
+            
+            
         

@@ -21,6 +21,7 @@ jobs:
                 go build 
                 go test -v
                 ls -l
+                cat go.mod
               working-directory: upper
             
             

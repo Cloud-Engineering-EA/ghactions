@@ -15,7 +15,8 @@ jobs:
             - run: pwd && ls -al
             - uses: actions/setup-go@v2
               with:
-                  go-version: '1.22'
+                #   go-version: '1.23'
+                go-version-file: 'upper/go.mod'
             - run: |
                 ls -l
                 go build 

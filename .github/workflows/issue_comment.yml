@@ -28,7 +28,7 @@ jobs:
                         cosole.log(`issue: ${issue}`);
 
                         // create comment thaking contributor
-                        cost comment = await github.issues.createComment({
+                        const comment = await github.issues.createComment({
                             issue_number, 
                             owner, 
                             repo,

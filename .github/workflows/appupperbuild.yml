@@ -8,22 +8,12 @@ on:
     workflow_dispatch:  # manual trigger
 jobs:
     build:
-        runs-on: self-hosted
+        runs-on: ubuntu-22.04
         steps:
+            - run: gh auth status 
+            - run: gh workflow list
             - run: pwd && ls -al
-            - uses: actions/checkout@v4
-            - run: pwd && ls -al
-            - uses: actions/setup-go@v5
-              with:
-                go-version-file: upper/go.mod
-                cache-dependency-path: upper/go.sum
-            - run: |
-                ls -l
-                go build 
-                go test -v
-                ls -l
-                cat go.mod
-              working-directory: upper
+
             
             
         

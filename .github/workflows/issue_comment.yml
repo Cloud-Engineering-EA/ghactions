@@ -19,7 +19,7 @@ jobs:
                       console.log(`issue_number: ${issue_number}`);
 
                       const owner = context.repo.owner;
-                      cost repo = context.repo.repo;
+                      const repo = context.repo.repo;
 
                       // lookup issue info 
                         const issue = await github.issues.get({

@@ -38,7 +38,7 @@ jobs:
                             body: 'Thank you for opening this issue!'
                         });
                         console.log(`comment id: ${comment.data.id}`);
-                        console.log(commet.data);
+                        console.log(comment.data);
 
                         //auto label issue
                          await github.rest.issues.addLabels({

@@ -15,7 +15,7 @@ jobs:
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   script: |
-                      const issue_number = context.issue.number || 3;
+                      const issue_number = context.issue.number;
                       console.log(`issue_number: ${issue_number}`);
 
                       const owner = context.repo.owner;

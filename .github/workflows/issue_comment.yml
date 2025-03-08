@@ -1,0 +1,53 @@
+name: issue_comment
+
+on:
+    issues:
+        types: opened
+    workflow_dispatch: # manual trigger
+
+jobs:
+    thankyou:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Comment on issue
+              id: issue_script
+              uses: actions/github-script@v7
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  script: |
+                      const issue_number = context.issue.number || 3
+                      console.log(`issue_number: ${issue_number}`);
+
+                      const owner = context.repo.owner;
+                      cost repo = context.repo.repo;
+
+                      // lookup issue info 
+                        const issue = await github.issues.get({
+                            owner,repo,issue_number
+                        });
+                        cosole.log(`issue: ${issue}`);
+
+                        // create comment thaking contributor
+                        cost comment = await github.issues.createComment({
+                            issue_number,
+                            owner,
+                            repo,
+                            body: 'Thank you for opening this issue!'
+                        });
+                        console.log(`comment id: ${comment.data.id}`);
+                        console.log(commet.data);
+
+                        //auto label issue
+                         await github.issues.addLabels({
+                            owner,
+                            repo,
+                            issue_number,
+                            labels: ['to-review']
+                        });
+
+                        //make comment id available to subsequent steps
+                        return comment.data.id;
+
+            - run: echo 'comment id = ${{ steps.issue_script.outputs.result }}'
+
+

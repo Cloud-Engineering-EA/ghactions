@@ -23,14 +23,14 @@ jobs:
 
                       // lookup issue info 
                         const issue = await github.issues.get({
-                            owner,repo,issue_number
+                            owner, repo, issue_number
                         });
                         cosole.log(`issue: ${issue}`);
 
                         // create comment thaking contributor
                         cost comment = await github.issues.createComment({
-                            issue_number,
-                            owner,
+                            issue_number, 
+                            owner, 
                             repo,
                             body: 'Thank you for opening this issue!'
                         });

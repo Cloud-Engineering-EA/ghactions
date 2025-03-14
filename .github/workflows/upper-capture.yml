@@ -32,6 +32,7 @@ jobs:
               with:
                 files: ./upper/upper*
                 body: "Release of upper binary tool"
-                tag_name: ${{ github.ref_name}}
-
+                tag_name: ${{ github.ref_name }}
+              if: startsWith(github.ref, 'refs/tags/')
+ 
 

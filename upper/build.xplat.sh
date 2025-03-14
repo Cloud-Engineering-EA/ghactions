@@ -21,7 +21,7 @@ do
         output_name+='.exe'
     fi
 
-    echo "::group::Building $output_name..."
+    echo "::group::Building $output_name..!!."
     go clean # remove prior build (triggers more logging too)
     env GOOS=$GOOS GOARCH=$GOARCH go build -x -o $output_name .
     echo "::endgroup::"

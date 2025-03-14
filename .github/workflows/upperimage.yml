@@ -24,10 +24,10 @@ jobs:
                   registry: ghcr.io
                   username: ${{ github.repository_owner }}
                   password: ${{ secrets.GITHUB_TOKEN }}
-            - run: docker tag upper ghcr.io/Ren4u/upper:latest
-            - run: docker tag upper ghcr.io/Ren4u/upper:${{ github.ref_name }}
-            - run: docker push ghcr.io/Ren4u/upper:latest
-            - run: docker push ghcr.io/Ren4u/upper:${{ github.ref_name }}
+            - run: docker tag upper ghcr.io/ren4u/upper:latest
+            - run: docker tag upper ghcr.io/ren4u/upper:${{ github.ref_name }}
+            - run: docker push ghcr.io/ren4u/upper:latest
+            - run: docker push ghcr.io/ren4u/upper:${{ github.ref_name }}
 
             
             

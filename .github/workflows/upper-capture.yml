@@ -30,8 +30,5 @@ jobs:
                 files: ./upper/upper*
                 body: "Release of upper binary tool"
                 tag_name: ${{ github.ref_name}}
-            # - uses: actions/upload-artifact@v4
-            #   with:
-            #     path: ./upper/upper*
-            #     name: "binary-${{ matrix.os}}"
+
 

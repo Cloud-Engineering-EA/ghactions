@@ -32,3 +32,4 @@ COPY --from=build /bin/upper /bin/
 
 
 ENTRYPOINT [ "/bin/upper" ]
+CMD [ "yes yes no" ]

@@ -19,6 +19,14 @@ jobs:
               working-directory: upper
             - name: test image
               run: docker container run upper hello Ren
+            - uses: docker/login-action@v3
+              with:
+                  username: ${{ github.repository_owner }}
+                  password: ${{ secrets.GITHUB_TOKEN }}
+            - run: docker tag upper ghcr.io/Ren4u/upper:latest
+            - run: docker tag upper ghcr.io/Ren4u/upper:${{ github.ref_name }}
+            - run: docker push ghcr.io/Ren4u/upper:latest
+            - run: docker push ghcr.io/Ren4u/upper:${{ github.ref_name }}
 
             
             

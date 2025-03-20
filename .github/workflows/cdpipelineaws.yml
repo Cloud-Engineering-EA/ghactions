@@ -21,3 +21,9 @@ jobs:
                 password: ${{ secrets.DOCKERHUB_PASSWORD }}
           - run: ./build-push.sh # can reuse local build scripts for CI/CD.
             working-directory: api
+    deploy:
+        runs-on: ubuntu-latest
+        needs: build
+        environment:
+            name: production
+        steps:

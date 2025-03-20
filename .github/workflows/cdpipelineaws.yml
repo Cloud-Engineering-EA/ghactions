@@ -6,6 +6,9 @@ on:
             - ".github/workflows/cdpipelineaws.yml"
             - "api/**"
     workflow_dispatch:  # manual trigger
+permissions:
+    contents: read
+    id-token: write
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -27,3 +30,11 @@ jobs:
         environment:
             name: production
         steps:
+         - name: Configure AWS Credentials to Personal AWS Account  
+           uses: aws-actions/configure-aws-credentials@v4
+           with:
+            role-to-assume: arn:aws:iam::897722668989:role/githubactionrole
+            aws-region: us-east-1
+            role-session-name: githubactionsession
+         - run: |
+             aws sts get-caller-identity
